@@ -25,7 +25,7 @@ def check_same_network(ip1, ip2):
 
 def get_ip_class(first_octet):
     first_octet = int(first_octet)
-    if 0 <= first_octet <= 126:
+    if 0 <= first_octet <= 127:
         return 'A'
     elif 128 <= first_octet <= 191:
         return 'B'
