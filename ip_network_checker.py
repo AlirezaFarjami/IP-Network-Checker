@@ -14,23 +14,27 @@ def check_same_network(ip1, ip2):
     # Check if IPs are in the same network based on their classes
 
     match ip1_class:
-        case 'A':
+        case 'A' | 'D' | 'E':
             return ip1_parts[0] == ip2_parts[0]
         case 'B':
             return ip1_parts[0] == ip2_parts[0] and ip1_parts[1] == ip2_parts[1]
         case 'C':
-            return ip1_parts[0] == ip2_parts[0] and ip1_parts[1] == ip2_parts[1] and ip1_parts[2] == ip2_parts[2]            
+            return ip1_parts[0] == ip2_parts[0] and ip1_parts[1] == ip2_parts[1] and ip1_parts[2] == ip2_parts[2]          
         case _:
             return False
 
 def get_ip_class(first_octet):
     first_octet = int(first_octet)
-    if 0 <= first_octet <= 127:
+    if 0 <= first_octet <= 126:
         return 'A'
     elif 128 <= first_octet <= 191:
         return 'B'
-    elif 192 <= first_octet <= 255:
+    elif 192 <= first_octet <= 223:
         return 'C'
+    elif 224 <= first_octet <=239:
+        return 'D'
+    elif 240 <= first_octet <= 247:
+        return 'E'
     else:
         return 'Unknown'
 
