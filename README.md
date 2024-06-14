@@ -26,6 +26,8 @@ In IPv4, IP addresses are divided into classes based on the first octet:
 Class A: The first octet ranges from 1 to 126.
 Class B: The first octet ranges from 128 to 191.
 Class C: The first octet ranges from 192 to 223.
+Class D: The first octet ranges from 224 to 239.
+Class E: The first octet ranges from 240 to 247.
 
 ## Note
 The script currently only supports IPv4 addresses.
